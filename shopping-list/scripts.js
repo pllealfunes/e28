@@ -3,15 +3,15 @@ let app = new Vue({
     el: '#app',
     data: {
         quantity: '',
-        item: '',
-        list: [],
-        obj: {}
+        thing: ' ',
+        item: [
+            [this.quantity, this.thing]
+        ],
+        list: []
     },
     methods: {
         submitItem() {
-            this.obj["quantity"] = this.quantity;
-            this.obj["item"] = this.item;
-            this.list.push(this.obj);
+            this.list.push(this.item);
         }
     }
 })
