@@ -14,11 +14,11 @@
     </h1>
 
     <div id='app' v-cloak>
-        <label>Quantity:
-            <input type='number' v-model.number='quantity' v-on:keyup.enter='submitItem'>
+        <label>Qty:
+            <input type='text' v-model.number='quantity' v-on:keyup.enter='submitItem'>
         </label>
         <label>Item:
-            <input type='text' v-model='thing' v-on:keyup.enter='submitItem'>
+            <input type='text' v-model='item' v-on:keyup.enter='submitItem'>
         </label>
         <button v-on:click='submitItem'>
             Add
@@ -30,10 +30,10 @@
         </div>
         <div v-else>
             <p>
-                Items: {{ list.length }}
+                Items: {{ counter }}
             </p>
             <ul>
-                <li v-for='newItem in list'>{{ newItem }}</li>
+                <li v-for='(item) in list'>{{ item.quantity }} x {{ item.item}}</li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,73 @@
+body{
+    color: white;
+    background-image: linear-gradient(to right, #48c6ef, #6f86d6);
+    
+}
+
+[v-cloak] {
+    display: none
+}
+
+h1{
+    font-size: 60px;
+    text-align: center;
+}
+
+h2,p,#results{
+    font-size: 45px;
+}
+
+i{
+    margin: 20px;
+    font-size: 60px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+#gameBoard{
+    text-align: center;
+    border: 3px solid white;
+    padding: 5px;
+    width: 500px;
+    height: 600px;
+    margin: 10px;
+}
+
+
+#scoreBoard{
+    border: 3px solid white;
+    padding: 5px;
+    font-size: 35px;
+    width: 500px;
+    margin: 10px;
+}
+
+#historyTitle{
+    text-align: center;
+}
+
+.lose{
+    color: red;
+}
+
+.win{
+    color: green;
+}
+
+.tie{
+    color: gold;
+}
+
+button{
+    border: none;
+    border-radius: 50px;
+    padding: 5px;
+    font-size: 15px;
+}

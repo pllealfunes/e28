@@ -1,17 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang='en'>
 
 <head>
 
     <title>Project 1</title>
     <meta charset='utf-8'>
-
-    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <h1>E28 Project 1</h1>
+    <script type="text/x-template" id="round-detail">
+        <div>
+            <ul>
+                <li>Round #: {{ number }}</li>
+                <li>Result: {{ result }}</li>
+                <li><slot name="player-score"></slot></li>
+                <li><slot name="comp-score"></slot></li>
+            </ul>
+        </div>
+    </script>
+    <h1>Rock Paper Scissors</h1>
+    <div id="app" class="container" v-cloak>
+        <div id="gameBoard">
+            <h2>Click On an Image to Play!</h2>
+
+            <i v-on:click='playGame' id="rock" class="fas fa-hand-rock"></i>
+            <i v-on:click='playGame' id="paper" class="fas fa-hand-paper"></i>
+            <i v-on:click='playGame' id="scissors" class="fas fa-hand-scissors"></i>
+            <br>
+            <button @click="resetGame">Reset Game</button>
+            <p id="youChose">You Chose: {{ playerOutput }}</p>
+            <p id="compChose">Computer Chose: {{ compOutput }}</p>
+            <div id="results" v-bind:class="resultClass">{{ result }}</div>
+        </div>
+        <div id="scoreBoard" v-if=" rounds != '' ">
+            <round-detail v-for='round in rounds' v-on:delete-round='deleteRound($event)' v-bind:key='round.number'
+                v-bind:number='round.number' v-bind:result='round.result'>
+                <template v-slot:player-score> Player Score: {{ round.playerScore }} </template>
+                <template v-slot:comp-score> Computer Score: {{ round.compScore }} </template>
+            </round-detail>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/1707487087.js" crossorigin="anonymous"></script>
 
     <script src="scripts.js"></script>
 </body>

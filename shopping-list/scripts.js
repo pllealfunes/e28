@@ -3,15 +3,17 @@ let app = new Vue({
     el: '#app',
     data: {
         quantity: '',
-        thing: ' ',
-        item: [
-            [this.quantity, this.thing]
-        ],
-        list: []
+        item: ' ',
+        list: [],
+        counter: 0,
     },
     methods: {
         submitItem() {
-            this.list.push(this.item);
+            this.list.push({ item: this.item, quantity: this.quantity });
+            this.counter += this.quantity;
+
+            this.item = '';
+            this.quantity = '';
         }
     }
 })
