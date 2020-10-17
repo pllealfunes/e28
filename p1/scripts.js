@@ -1,4 +1,4 @@
-Vue.component('round-detail', {
+Vue.component("round-detail", {
     data() {
         return {
         }
@@ -17,20 +17,20 @@ Vue.component('round-detail', {
 
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
     data: {
         compMove: null,
         playerMove: null,
-        moves: ['rock', 'paper', 'scissors'],
-        compOutput: '',
-        playerOutput: '',
-        result: '',
+        moves: ["rock", "paper", "scissors"],
+        compOutput: "",
+        playerOutput: "",
+        result: "",
         playerScore: 0,
         compScore: 0,
         rounds: [],
         round: 1,
         winner: null,
-        resultClass: ''
+        resultClass: ""
 
     },
     methods: {
