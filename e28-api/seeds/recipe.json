@@ -1,0 +1,20 @@
+{
+    "seeds": [
+        {
+            "favorite": true,
+            "name": "Soup",
+            "ingrediants": "Water",
+            "instructions": "Steps"
+        },
+        {
+            "name": "Rice",
+            "ingrediants": "Salt vfdshbjfebveknvlfekvvervnerjkbvekjbvqerbvjenvlef",
+            "instructions": "Add onion bdwhjvbkajdbvkdjnvlkdsnvjdbfvjkbskjvbufivbwoivnwnvjdw vjd vjdbviwovbdj"
+        },
+        {
+            "name": "Steak",
+            "ingrediants": "Garlic Salt bvhdsbvjwobvydwbvudwobvuwbvp dwhvbdwhbvdhwbvewhvbpuwdvbwbv",
+            "instructions": "Cook well done vbiuwevboewvbp hbvdwvbouwpv dwbviowehvpwebvuiwdbvoidwbvuwdv"
+        }
+    ]
+}

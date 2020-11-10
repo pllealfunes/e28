@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h1>Recipes</h1>
-    <router-link id="add-recipe" :to="'/add'">Add Recipe</router-link>
+    <h1>Rezept</h1>
+    <router-link id="add" :to="'/recipe/add'">Add Recipe</router-link>
+
+    <router-link id="favorites-list" :to="'/favorites'">favorites</router-link>
+
     <div id="recipes">
       <router-link
         id="link"
@@ -16,15 +19,11 @@
 </template>
 
 <script>
-import { recipes } from "@/recipes.js";
-
 export default {
   name: "",
-  components: {},
+  props: ["recipes"],
   data: function () {
-    return {
-      recipes: recipes,
-    };
+    return {};
   },
 };
 </script>

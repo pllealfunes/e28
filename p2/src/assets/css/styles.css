@@ -1,25 +1,30 @@
 body{
     text-align: center;
+    background-color: #fcc200;
+    color: whitesmoke;
 }
 
-
-form{
+h1{
+    font-size: 50px;
+}
+#addRecipe{
     display: flex;
     flex-direction: column;
     margin: auto;
     width: 310px;
+    margin-top: 50px;
 }
 
-form > label{
+#addRecipe > label{
     font-size: 20px;
 }
 
-form > input{
+#addRecipe > input{
     height: 20px;
     margin: 10px;
 }
 
-form > textarea{
+#addRecipe > textarea{
     height: 200px;
     margin: 10px;
 }
@@ -31,28 +36,56 @@ button{
     font-size: 20px;
 
 }
+
+#delete-recipe{
+    background-color: whitesmoke;
+    color: coral;
+}
 .recipe{
-    background-color: orange;
+    background-color: coral;
+    color: whitesmoke;
     margin: auto;
     padding: 10px;
     width: 200px;
     height: 300px;
+    font-size: 20px;
+    margin-top: 50px;
 }
 
 #recipes{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
 
 #link{
-    border: 2px solid black;
     padding: 20px;
     margin: 10px;
     width: 100px;
     height: 100px;
+    font-size: 25px;
+    color: whitesmoke;
+    background-color: coral;
+    text-decoration: none;
 }
 
-#back,#add{
+#home,#add,#edit,#previous,#favorites-list{
     margin: 5px;
+    color: whitesmoke;
+    font-size: 20px;
+    background-color: coral;
+    padding: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+
+#confirmation-message{
+    background-color: coral;
+    width: 200px;
+    margin: auto;
+    margin-top: 25px;
+    font-size: 20px;
 }

@@ -1,9 +1,12 @@
 <template>
   <div id="create-page">
-    <h1>Add New Recipe</h1>
+    <h1>Edit Recipe</h1>
     <router-link id="home" :to="'/'">Home Page</router-link>
+    <router-link id="previous" :to="'/recipe/' + recipe.id"
+      >Back to Recipe</router-link
+    >
     <div id="confirmation-message" v-if="showConfirmationMessage">
-      Successfully Added Recipe
+      Successfully Edited Recipe
     </div>
     <div id="addRecipe">
       <label for="favorite" class="form-checkbox-label">
@@ -11,52 +14,37 @@
         Favorite
       </label>
       <label for="name"></label>
-      <input
-        id="name"
-        type="text"
-        placeholder="New Recipe"
-        v-model="recipe.name"
-      />
+      <input id="name" type="text" v-model="recipe.name" />
 
       <label for="ingrediants"></label>
-      <textarea
-        id="ingrediants"
-        placeholder="Ingrediants"
-        v-model="recipe.ingrediants"
-      />
+      <textarea id="ingrediants" v-model="recipe.ingrediants" />
 
       <label for="istructions"></label>
-      <textarea
-        id="instructions"
-        placeholder="Instructions"
-        v-model="recipe.instructions"
-      />
-
-      <button id="added-recipe" @click="addRecipe">Delicious!</button>
+      <textarea id="instructions" v-model="recipe.instructions" />
+      <button id="edit-recipe" @click="editRecipe">Edit Recipe</button>
     </div>
   </div>
 </template>
 
 <script>
 import { axios } from "@/app.js";
-
 export default {
-  name: "create-page",
-  data() {
+  name: "show-recipe",
+  props: ["id", "recipes"],
+  data: function () {
     return {
       errors: null,
       showConfirmationMessage: false,
       recipe: {
-        favorite: null,
-        name: "",
-        ingrediants: "",
-        instructions: "",
+        name: "this.recipe",
+        ingrediants: "this.recipe.ingrediants",
+        instructions: "this.recipe.instructions",
       },
     };
   },
   methods: {
-    addRecipe() {
-      axios.post("/recipe", this.recipe).then((response) => {
+    editRecipe() {
+      axios.put("/recipe/" + this.recipe.id, this.recipe).then((response) => {
         if (response.data.errors) {
           this.errors = response.data.errors;
         } else {
@@ -66,6 +54,11 @@ export default {
         }
       });
     },
+  },
+  mounted() {
+    this.recipe = this.recipes.filter((recipe) => {
+      return recipe.id == this.id;
+    }, this.id)[0];
   },
 };
 </script>
