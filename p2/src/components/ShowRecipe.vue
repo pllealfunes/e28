@@ -1,19 +1,25 @@
 <template>
-  <div v-if="recipe">
-    <h1>{{ recipe.name }}</h1>
-    <router-link id="home" :to="'/'">Home Page</router-link>
-    <router-link id="add" :to="'/recipe/add'">Add Recipe</router-link>
-    <router-link id="edit" :to="'/recipe/edit/' + recipe.id"
-      >Edit Recipe</router-link
-    >
-    <div id="confirmation-message" v-if="showConfirmationMessage">
-      Successfully Deleted Recipe
+  <div>
+    <div v-if="recipe">
+      <h1>{{ recipe.name }}</h1>
+      <router-link id="home" :to="'/'">Home Page</router-link>
+      <router-link id="add" :to="'/add'">Add Recipe</router-link>
+      <router-link id="edit" :to="'/edit/' + recipe.id"
+        >Edit Recipe</router-link
+      >
+      <div class="recipe">
+        <p>Is Favorite: {{ recipe.favorite }}</p>
+        <p>{{ recipe.ingrediants }}</p>
+        <p>{{ recipe.instructions }}</p>
+        <button id="delete-recipe" @click="deleteRecipe">Delete Recipe</button>
+      </div>
     </div>
-    <div class="recipe">
-      <p v-if="recipe.favorite">Is Favorite: {{ recipe.favorite }}</p>
-      <p>{{ recipe.ingrediants }}</p>
-      <p>{{ recipe.instructions }}</p>
-      <button id="delete-recipe" @click="deleteRecipe">Delete Recipe</button>
+    <div v-else>
+      <router-link id="home" :to="'/'">Home Page</router-link>
+      <router-link id="add" :to="'/add'">Add Recipe</router-link>
+      <div id="confirmation-message" v-if="showConfirmationMessage">
+        Successfully Deleted Recipe
+      </div>
     </div>
   </div>
 </template>
@@ -25,7 +31,6 @@ export default {
   props: ["id", "recipes"],
   data: function () {
     return {
-      recipe: null,
       showConfirmationMessage: false,
     };
   },
@@ -37,15 +42,16 @@ export default {
         } else {
           this.$emit("update-recipes");
           this.showConfirmationMessage = true;
-          setTimeout(() => (this.showConfirmationMessage = false), 2000);
         }
       });
     },
   },
-  mounted() {
-    this.recipe = this.recipes.filter((recipe) => {
-      return recipe.id == this.id;
-    }, this.id)[0];
+  computed: {
+    recipe() {
+      return this.recipes.filter((recipe) => {
+        return recipe.id == this.id;
+      }, this.id)[0];
+    },
   },
 };
 </script>

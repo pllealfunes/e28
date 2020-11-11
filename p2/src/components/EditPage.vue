@@ -8,10 +8,11 @@
     <div id="confirmation-message" v-if="showConfirmationMessage">
       Successfully Edited Recipe
     </div>
-    <div id="addRecipe">
-      <label for="favorite" class="form-checkbox-label">
-        <input type="checkbox" v-model="recipe.favorite" id="favorite" />
-        Favorite
+    <div v-if="recipe" id="addRecipe">
+      <label for="favorite">
+        <input type="checkbox" id="favorite" v-model="recipe.favorite" />{{
+          recipe.favorite
+        }}
       </label>
       <label for="name"></label>
       <input id="name" type="text" v-model="recipe.name" />
@@ -29,17 +30,11 @@
 <script>
 import { axios } from "@/app.js";
 export default {
-  name: "show-recipe",
   props: ["id", "recipes"],
   data: function () {
     return {
       errors: null,
       showConfirmationMessage: false,
-      recipe: {
-        name: "this.recipe",
-        ingrediants: "this.recipe.ingrediants",
-        instructions: "this.recipe.instructions",
-      },
     };
   },
   methods: {
@@ -55,10 +50,12 @@ export default {
       });
     },
   },
-  mounted() {
-    this.recipe = this.recipes.filter((recipe) => {
-      return recipe.id == this.id;
-    }, this.id)[0];
+  computed: {
+    recipe() {
+      return this.recipes.filter((recipe) => {
+        return recipe.id == this.id;
+      }, this.id)[0];
+    },
   },
 };
 </script>

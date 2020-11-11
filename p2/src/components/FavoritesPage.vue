@@ -2,13 +2,10 @@
   <div v-if="recipe">
     <h1>{{ recipe.name }}</h1>
     <router-link id="home" :to="'/'">Home Page</router-link>
-    <router-link id="add" :to="'/recipe/add'">Add Recipe</router-link>
-    <router-link id="edit" :to="'/recipe/edit/' + recipe.id"
-      >Edit Recipe</router-link
-    >
+    <router-link id="add" :to="'/add'">Add Recipe</router-link>
     <div class="recipe">
       <ul>
-        <li v-for="recipe in favoriteRecipe" :key="recipe.id">
+        <li v-for="(recipe, index) in favoriteRecipe" :key="index">
           {{ recipe.name }}
         </li>
       </ul>
@@ -22,7 +19,7 @@ export default {
   props: ["recipes"],
   data: function () {
     return {
-      recipe: "",
+      recipe: this.recipes,
     };
   },
   computed: {

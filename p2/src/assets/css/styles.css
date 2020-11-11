@@ -89,3 +89,11 @@ button{
     margin-top: 25px;
     font-size: 20px;
 }
+
+#warning-message{
+    margin: auto;
+    background-color: coral;
+    width: 300px;
+    margin-top: 25px;
+    font-size: 20px;
+}

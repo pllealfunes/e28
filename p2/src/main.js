@@ -17,10 +17,10 @@ const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', component: ShowRecipes },
-    { path: '/recipe/add', component: CreatePage },
-    { path: '/recipe/:id', component: ShowRecipe, props: true },
-    { path: '/recipe/edit/:id', component: EditPage, props: true },
+    { path: '/add', component: CreatePage },
     { path: '/favorites', component: FavoritesPage, props: true },
+    { path: '/edit/:id', component: EditPage, props: true },
+    { path: '/recipe/:id', component: ShowRecipe, props: true },
 
   ],
 })

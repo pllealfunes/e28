@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Rezept</h1>
-    <router-link id="add" :to="'/recipe/add'">Add Recipe</router-link>
+    <router-link id="add" :to="'/add'">Add Recipe</router-link>
 
     <router-link id="favorites-list" :to="'/favorites'">favorites</router-link>
 
