@@ -10,13 +10,9 @@
     </div>
     <div id="addRecipe">
       <label for="favorite">
-        <input
-          type="checkbox"
-          id="favorite"
-          true-value="1"
-          false-value="0"
-          v-model="recipe.favorite"
-        />{{ recipe.favorite }}
+        <input type="checkbox" id="favorite" v-model="recipe.favorite" />{{
+          recipe.favorite
+        }}
       </label>
       <label for="name"></label>
       <input id="name" type="text" v-model="recipe.name" />
