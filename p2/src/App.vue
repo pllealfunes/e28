@@ -20,6 +20,7 @@ export default {
   methods: {
     updateRecipes() {
       axios.get("recipe").then((response) => {
+        response.data.recipe.favorite = Boolean(Number(response.data.favorite));
         this.recipes = response.data.recipe;
       });
     },

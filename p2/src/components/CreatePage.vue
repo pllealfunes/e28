@@ -37,7 +37,7 @@
       <label for="ingrediants"></label>
       <textarea
         id="ingrediants"
-        placeholder="Ingrediants"
+        placeholder="ex: Ingrediant, Ingrediant"
         v-model="recipe.ingrediants"
       />
 

@@ -2,17 +2,21 @@
   <div id="create-page">
     <h1>Edit Recipe</h1>
     <router-link id="home" :to="'/'">Home Page</router-link>
-    <router-link id="previous" :to="'/recipe/' + recipe.id"
+    <router-link id="previous" v-if="recipe" :to="'/recipe/' + recipe.id"
       >Back to Recipe</router-link
     >
     <div id="confirmation-message" v-if="showConfirmationMessage">
       Successfully Edited Recipe
     </div>
-    <div v-if="recipe" id="addRecipe">
+    <div id="addRecipe">
       <label for="favorite">
-        <input type="checkbox" id="favorite" v-model="recipe.favorite" />{{
-          recipe.favorite
-        }}
+        <input
+          type="checkbox"
+          id="favorite"
+          true-value="1"
+          false-value="0"
+          v-model="recipe.favorite"
+        />{{ recipe.favorite }}
       </label>
       <label for="name"></label>
       <input id="name" type="text" v-model="recipe.name" />

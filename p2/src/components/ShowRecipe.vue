@@ -9,7 +9,11 @@
       >
       <div class="recipe">
         <p>Is Favorite: {{ recipe.favorite }}</p>
-        <p>{{ recipe.ingrediants }}</p>
+        <ul>
+          <li v-for="ingrediant in splitItem" :key="ingrediant">
+            {{ ingrediant }}
+          </li>
+        </ul>
         <p>{{ recipe.instructions }}</p>
         <button id="delete-recipe" @click="deleteRecipe">Delete Recipe</button>
       </div>
@@ -51,6 +55,10 @@ export default {
       return this.recipes.filter((recipe) => {
         return recipe.id == this.id;
       }, this.id)[0];
+    },
+    splitItem() {
+      // take the ingrediants and split them after every comma to create a list
+      return this.recipe.ingrediants.split(",");
     },
   },
 };
