@@ -8,10 +8,10 @@ ListCount.vue is the only SFC and everything else are my "pages"
 ## Server interaction
 *List the features in your application that are persisting and retrieving data from the server*
 All four CRUD operations are used in the application.
-Create - CreatePage
-Read - Recipes and Recipe page
-Update - Edit Page
-Delete - Recipe Page
+* Create - CreatePage
+* Read - Recipes and Recipe page
+* Update - Edit Page
+* Delete - Recipe Page
 
 ## Outside resources
 * Used this information to add an Ingrediant to the Shopping List: https://stackoverflow.com/questions/49530453/vue-js-javascript-create-new-object-onclick-with-one-value-being-the-value-of-t
