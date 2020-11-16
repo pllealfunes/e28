@@ -1,6 +1,6 @@
 <template>
-  <div v-if="recipe">
-    <h1>{{ recipe.name }}</h1>
+  <div>
+    <h1>Favorites</h1>
     <router-link id="home" :to="'/'">Home Page</router-link>
     <router-link id="add" :to="'/add'">Add Recipe</router-link>
     <div class="recipe">
@@ -18,12 +18,11 @@ export default {
   name: "show-recipe",
   props: ["recipes"],
   data: function () {
-    return {
-      recipe: this.recipes,
-    };
+    return {};
   },
   computed: {
     favoriteRecipe: function () {
+      //filter through the recipes and find which have been marked as a favorite and show as list on page
       return this.recipes.filter((recipe) => recipe.favorite == true);
     },
   },

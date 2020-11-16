@@ -1,22 +1,23 @@
 {
     "seeds": [
         {
-            "favorite": true,
-            "name": "Soup",
-            "ingrediants": "Water",
-            "instructions": "Steps"
-        },
-        {
             "favorite": false,
-            "name": "Rice",
-            "ingrediants": "Salt vfdshbjfebveknvlfekvvervnerjkbvekjbvqerbvjenvlef",
-            "instructions": "Add onion bdwhjvbkajdbvkdjnvlkdsnvjdbfvjkbskjvbufivbwoivnwnvjdw vjd vjdbviwovbdj"
+            "name": "Minced Radish Salad",
+            "ingrediants": "Radish, Cilantro, Red Onion, Lime, Salt, Bowl",
+            "instructions": "1. Remove the green stem and wash radish, 2. Mince the radish and red onion, 3. Chop the cilantro, 4. Mix everything together in  a bowl, 5. Add salt and lime as much as you prefer"
         },
         {
             "favorite": true,
-            "name": "Steak",
-            "ingrediants": "Garlic Salt bvhdsbvjwobvydwbvudwobvuwbvp dwhvbdwhbvdhwbvewhvbpuwdvbwbv",
-            "instructions": "Cook well done vbiuwevboewvbp hbvdwvbouwpv dwbviowehvpwebvuiwdbvoidwbvuwdv"
+            "name": "Chicken with Scallions",
+            "ingrediants": " 8 Pieces of Chicken, 2 Bunches of Green Onions, Salt 0r Goya Chicken Seasoning, Garlic, Black Pepper, Thyme, Bay Leaves, Oil, White Vinegar, a Pot",
+            "instructions": "1. Wash the chicken and place in a pot, 2. Add 1/4 cup of Vinegar and 1/3 cup of Vinegar, 3. Add 2 Bay leaves, 4. Add 1/3 Teaspoon of Thyme, 5. Add 2 cloves of garlic, 6.  Chop up green onions and add to pot, 7. Add salt or seasoing to your liking, 8. Add 1/2 cup of water, 9. Cover the pot and cook for 1 hour at low heat",
+            "buy": "Bay Leaves"
+        },
+        {
+            "favorite": true,
+            "name": "Eggs with Ham",
+            "ingrediants": "Eggs, Ham, Tomatoe, Onion, Garlic, Oil",
+            "instructions": "1. Put oil in a pan, 2. Fry for 2 minutes chopped up onion, tomatoe, and garlic, 3. Add beat eggs and chopped up ham, 4. Cook until eggs are ready"
         }
     ]
 }

@@ -8,11 +8,13 @@
     <div id="confirmation-message" v-if="showConfirmationMessage">
       Successfully Edited Recipe
     </div>
-    <div id="addRecipe">
+    <div v-if="recipe" id="addRecipe">
       <label for="favorite">
-        <input type="checkbox" id="favorite" v-model="recipe.favorite" />{{
-          recipe.favorite
-        }}
+        <input
+          type="checkbox"
+          id="favorite"
+          v-model="recipe.favorite"
+        />Favorite
       </label>
       <label for="name"></label>
       <input id="name" type="text" v-model="recipe.name" />
@@ -52,6 +54,7 @@ export default {
   },
   computed: {
     recipe() {
+      //filter through recipe and find recipe by id
       return this.recipes.filter((recipe) => {
         return recipe.id == this.id;
       }, this.id)[0];

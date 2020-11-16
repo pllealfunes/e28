@@ -7,7 +7,7 @@
 
     <div id="recipes">
       <router-link
-        id="link"
+        id="recipe-link"
         v-for="recipe in recipes"
         :key="recipe.id"
         :recipe="recipe"

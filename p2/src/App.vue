@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <list-count :recipes="recipes"></list-count>
     <router-view
       v-bind:recipes="recipes"
       v-on:update-recipes="updateRecipes"
@@ -8,15 +9,18 @@
 </template>
 
 <script>
+import ListCount from "@/components/ListCount.vue";
 import { axios } from "@/app.js";
 export default {
   name: "App",
+  components: {
+    "list-count": ListCount,
+  },
   data() {
     return {
       recipes: [],
     };
   },
-  components: {},
   methods: {
     updateRecipes() {
       axios.get("recipe").then((response) => {

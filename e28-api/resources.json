@@ -21,6 +21,10 @@
             "validators": [
                 "required"
             ]
+        },
+        "buy": {
+            "type": "text",
+            "validators": []
         }
     }
 }

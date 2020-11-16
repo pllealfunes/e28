@@ -44,7 +44,7 @@
       <label for="instructions"></label>
       <textarea
         id="instructions"
-        placeholder="Instructions"
+        placeholder="ex: 1. Instrcution, 2. Instruction"
         v-model="recipe.instructions"
       />
 

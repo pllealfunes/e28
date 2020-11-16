@@ -4,10 +4,11 @@ import VueRouter from 'vue-router';
 import "@/assets/css/styles.css";
 
 import ShowRecipes from '@/components/ShowRecipes.vue';
-import ShowRecipe from '@/components/ShowRecipe.vue';
+import RecipePage from '@/components/RecipePage.vue';
 import CreatePage from '@/components/CreatePage.vue';
 import EditPage from '@/components/EditPage.vue';
 import FavoritesPage from '@/components/FavoritesPage.vue';
+import ShoppingListPage from '@/components/ShoppingList.vue';
 
 
 Vue.use(VueRouter);
@@ -19,8 +20,9 @@ const router = new VueRouter({
     { path: '/', component: ShowRecipes },
     { path: '/add', component: CreatePage },
     { path: '/favorites', component: FavoritesPage, props: true },
+    { path: '/shoppingList', component: ShoppingListPage, props: true },
     { path: '/edit/:id', component: EditPage, props: true },
-    { path: '/recipe/:id', component: ShowRecipe, props: true },
+    { path: '/recipe/:id', component: RecipePage, props: true },
 
   ],
 })
