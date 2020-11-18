@@ -2,14 +2,21 @@
 + By: Paula Leal Funes
 + Production URL: http://e28p2.lefthandedcat.me
 
-## Pages & SFC summary
-ListCount.vue is the only SFC and everything else are my "pages"
+## Pages summary
+* ShowRecipes - Show all recipes/the home page
+* RecipePage - Show a single recipe
+* ShoppingList Page - shows shopping list (click shopping list circle on left corner)
+* FavoritesPage - Shows list of favorite recipes
+* CreatePage - Create a new recipe
+* EditRecipe - Edit a recipe
+
+## SFC summary
+ListCount.vue is the only SFC
   
 ## Server interaction
-*List the features in your application that are persisting and retrieving data from the server*
 All four CRUD operations are used in the application.
 * Create - CreatePage
-* Read - Recipes and Recipe page
+* Read - ShowRecipes, Recipe page, and Shopping List
 * Update - Edit Page
 * Delete - Recipe Page
 
