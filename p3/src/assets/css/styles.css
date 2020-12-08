@@ -1,0 +1,194 @@
+body{
+    text-align: center;
+    background-color: #fcc200;
+    color: whitesmoke;
+}
+
+h1{
+    font-size: 50px;
+}
+#addRecipe{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 310px;
+    margin-top: 50px;
+}
+
+#addRecipe > label{
+    font-size: 20px;
+}
+
+#addRecipe > input{
+    height: 20px;
+    margin: 10px;
+}
+
+#addRecipe > textarea{
+    height: 200px;
+    margin: 10px;
+}
+
+button{
+    border: none;
+    background-color: coral;
+    color: whitesmoke;
+    font-size: 20px;
+
+}
+
+#delete-recipe{
+    background-color: whitesmoke;
+    color: coral;
+}
+
+#add-shoppinglist
+{
+    background-color: whitesmoke;
+    color: coral;
+    margin-top: 10px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+#ingrediant-list{
+    list-style: none;
+}
+
+
+#recipe-list{
+    align-items: center; /* NEW */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+    
+}
+
+#recipe-item{
+    background-color: coral;
+    color: whitesmoke;
+    margin: auto;
+    padding: 10px;
+    width: 500px;
+    height: 200px;
+    font-size: 20px;
+    margin: 50px;
+}
+
+#recipe-title{
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+#item{
+    margin-top: 30px;
+}
+
+#recipes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.recipe{
+    background-color: coral;
+    color: whitesmoke;
+    margin: 0 auto;
+    width: 500px;
+    height: 800px;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+
+#recipe-link{
+    padding: 20px;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    font-size: 25px;
+    color: whitesmoke;
+    background-color: coral;
+    text-decoration: none;
+}
+
+#home,#add,#edit,#previous,#favorites-list,#account-link{
+    margin: 5px;
+    color: whitesmoke;
+    font-size: 20px;
+    background-color: coral;
+    padding: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#instructions-title,#ingrediants-title{
+    margin-top: 50px;
+}
+
+
+#confirmation-message{
+    background-color: coral;
+    width: 200px;
+    margin: auto;
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+#warning-message{
+    margin: auto;
+    background-color: coral;
+    width: 300px;
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+#accessed-denied{
+    background-color: coral;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 5px;
+    border-radius: 50%;
+    line-height: 100px;
+    font-size: 25px;
+}
+
+#accessed-denied > p{
+    margin-top: 170px;
+    font-size: 30px;
+}
+
+
+#list-container{
+    background-color: coral;
+    width: 100px;
+    height: 100px;
+    font-size: 25px;
+    border-radius: 50%;
+    padding: 20px;
+    line-height: 35px;
+}
+
+#list-count{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+#empty-cart{
+    background-color: coral;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 50%;
+    line-height: 300px;
+    font-size: 25px;
+}
