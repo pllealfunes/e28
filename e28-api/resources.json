@@ -1,9 +1,5 @@
 {
     "recipe": {
-        "favorite": {
-            "type": "boolean",
-            "validators": []
-        },
         "name": {
             "type": "string",
             "validators": [
@@ -21,10 +17,26 @@
             "validators": [
                 "required"
             ]
-        },
-        "buy": {
-            "type": "text",
+        }
+    },
+    "favorite": {
+        "favorite": {
+            "type": "boolean",
             "validators": []
+        },
+        "recipe_id": {
+            "type": "integer",
+            "validators": [
+                "required",
+                "numeric"
+            ]
+        },
+        "user_id": {
+            "type": "string",
+            "validators": [
+                "required",
+                "numeric"
+            ]
         }
     }
 }
