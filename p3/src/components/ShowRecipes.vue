@@ -9,6 +9,7 @@
 
     <div id="recipes">
       <router-link
+      data-test="recipe-link"
         id="recipe-link"
         v-for="recipe in recipes"
         :key="recipe.id"

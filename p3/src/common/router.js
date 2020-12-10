@@ -21,6 +21,10 @@ const routes = [
         component: () => import('@/components/AccountPage.vue'),
     },
     {
+        path: '/register',
+        component: () => import('@/components/RegisterPage.vue'),
+    },
+    {
         path: '/shoppingList',
         component: () => import('@/components/ShoppingList.vue'),
     },
@@ -74,6 +78,7 @@ router.beforeEach(async (to, from, next) => {
         }
     }
 
+    // If we don't have the user yet, dispatch our Vuex authUser action
     if (store.state.user === null) {
         store.dispatch('authUser').then(() => {
             decide();
@@ -81,6 +86,7 @@ router.beforeEach(async (to, from, next) => {
     } else {
         decide();
     }
+
 });
 
 export default router;

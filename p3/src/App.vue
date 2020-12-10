@@ -20,7 +20,6 @@ export default {
   },
   methods: {},
   mounted() {
-    //this.updateRecipes();
     this.$store.dispatch("fetchRecipes");
     this.$store.dispatch("authUser");
   },

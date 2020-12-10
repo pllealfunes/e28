@@ -7,21 +7,12 @@
       Successfully Added Recipe
     </div>
 
-    <div id="warning-message">
-      <div v-for="(value, index) in name" :key="index">
-        {{ value }}
-      </div>
-    </div>
-    <div id="warning-message">
-      <div v-for="(ingrediant, item) in instructions" :key="item">
-        {{ ingrediant }}
-      </div>
-    </div>
-    <div id="warning-message">
-      <div v-for="(instruction, step) in ingrediants" :key="step">
-        {{ instruction }}
-      </div>
-    </div>
+    <ul id="create-errors" v-if="errors">
+      <li class="error" v-for="(error, index) in errors" :key="index">
+        {{ error.toString() }}
+      </li>
+    </ul>
+
     <div id="addRecipe">
       <label for="name"></label>
       <input
@@ -29,6 +20,7 @@
         type="text"
         placeholder="New Recipe"
         v-model="recipe.name"
+        v-on:blur="validate()"
       />
 
       <label for="ingrediants"></label>
@@ -36,6 +28,7 @@
         id="ingrediants"
         placeholder="ex: Ingrediant, Ingrediant"
         v-model="recipe.ingrediants"
+        v-on:blur="validate()"
       />
 
       <label for="instructions"></label>
@@ -43,6 +36,7 @@
         id="instructions"
         placeholder="ex: 1. Instrcution, 2. Instruction"
         v-model="recipe.instructions"
+        v-on:blur="validate()"
       />
 
       <button id="added-recipe" @click="addRecipe">Delicious!</button>
@@ -52,15 +46,12 @@
 
 <script>
 import { axios } from "@/app.js";
-
+import Validator from "validatorjs";
 export default {
   name: "create-page",
   data() {
     return {
-      name: null,
-      ingrediants: null,
-      instructions: null,
-      favorite: false,
+      errors: null,
       showConfirmationMessage: false,
       recipe: {
         name: "",
@@ -70,24 +61,37 @@ export default {
     };
   },
   methods: {
+    validate() {
+      let validator = new Validator(this.recipe, {
+        name: "required",
+        ingrediants: "required",
+        instructions: "required",
+      });
+
+      this.errors = validator.errors.all();
+
+      return validator.passes();
+    },
     addRecipe() {
-      axios.post("/recipe", this.recipe).then((response) => {
+      //if (this.errors.length == 0) {
+      axios.post("/recipe/", this.recipe).then((response) => {
         if (response.data.errors) {
-          this.name = response.data.errors.name;
-          this.ingrediants = response.data.errors.ingrediants;
-          this.instructions = response.data.errors.instructions;
+          //this.name = response.data.errors.name;
+          //this.ingrediants = response.data.errors.ingrediants;
+          //this.instructions = response.data.errors.instructions;
+          this.errors = response.data.errors;
         } else {
           this.$store.dispatch("fetchRecipes");
-          this.name = null;
-          this.ingrediants = null;
-          this.instructions = null;
+          //this.name = null;
+          //this.ingrediants = null;
+          //this.instructions = null;
           this.showConfirmationMessage = true;
-          this.favorite = false;
           this.recipe = "";
           setTimeout(() => (this.showConfirmationMessage = false), 2000);
         }
       });
     },
+    //},
   },
 };
 </script>

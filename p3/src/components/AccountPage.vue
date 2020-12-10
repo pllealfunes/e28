@@ -1,54 +1,58 @@
 <template>
   <div id="account-page">
-    <div v-if="user">
-      <h2>Hi, {{ user.name }}!</h2>
-      <router-link id="home" :to="'/'">Home Page</router-link>
-      <router-link id="add" :to="'/add'">Add Recipe</router-link>
-      <br />
-      <br />
+    <router-link id="home" :to="'/'">Home Page</router-link>
+    <router-link id="add" :to="'/add'">Add Recipe</router-link>
+    <div id="user-account" v-if="user">
+      <h2 id="account-name">Hi, {{ user.name }}!</h2>
       <div id="favorites">
-        <strong>Your Favorites</strong>
-        <p v-if="favorites && favorites.length == 0">No favorites yet.</p>
-        <li v-for="(favorite, key) in favorites" v-bind:key="key">
+        <strong id="your-favorites">Your Favorites</strong>
+        <p id="no-favorites" v-if="favorites && favorites.length == 0">
+          No favorites yet.
+        </p>
+        <li
+          id="favorites"
+          v-for="(favorite, key) in favorites"
+          v-bind:key="key"
+        >
           {{ favorite.name }}
         </li>
       </div>
 
-      <button @click="logout">Logout</button>
+      <button id="logout-button" @click="logout">Logout</button>
     </div>
 
     <div v-else id="loginForm">
-      <h2>Login</h2>
-      <router-link id="home" :to="'/'">Home Page</router-link>
-      <router-link id="add" :to="'/add'">Add Recipe</router-link>
-      <br />
-      <br />
-      <small
-        >(Form is prefilled for demonstration purposes; remove in final
-        application)</small
-      >
+      <h2 id="login-title">Login</h2>
       <div>
-        <label>Email: <input type="text" v-model="data.email" /></label>
+        <label
+          >Email:
+          <input type="text" v-model="data.email" v-on:blur="validate()"
+        /></label>
       </div>
       <div>
         <label
-          >Password: <input type="password" v-model="data.password"
+          >Password:
+          <input type="password" v-model="data.password" v-on:blur="validate()"
         /></label>
       </div>
 
       <button @click="login">Login</button>
-
-      <ul v-if="errors">
+      <br />
+      <ul id="account-errors" v-if="errors">
         <li class="error" v-for="(error, index) in errors" :key="index">
-          {{ error }}
+          {{ error.toString() }}
         </li>
       </ul>
+      <router-link id="register-link" :to="'/register'"
+        >No Account? Register Now!</router-link
+      >
     </div>
   </div>
 </template>
 
 <script>
 import { axios } from "@/app.js";
+import Validator from "validatorjs";
 
 export default {
   data() {
@@ -71,6 +75,16 @@ export default {
     },
   },
   methods: {
+    validate() {
+      let validator = new Validator(this.data, {
+        email: "required",
+        password: "required",
+      });
+
+      this.errors = validator.errors.all();
+
+      return validator.passes();
+    },
     loadFavorites() {
       if (this.user) {
         // Because favorite is a auth-protected resource, this will

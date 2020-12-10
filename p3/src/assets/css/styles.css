@@ -145,7 +145,7 @@ button{
     margin: auto;
     background-color: coral;
     width: 300px;
-    margin-top: 25px;
+    margin-bottom: 15px;
     font-size: 20px;
 }
 
@@ -191,4 +191,82 @@ button{
     border-radius: 50%;
     line-height: 300px;
     font-size: 25px;
+}
+
+#loginForm{
+    width: 400px;
+    height: 440px;
+     border: 3px solid white;
+     border-radius: 25px;
+     background-color: white;
+     margin: auto;
+     color:coral;
+     margin-top: 60px;
+     font-size: 25px;
+}
+
+#user-account{
+    background-color: coral;
+    color: whitesmoke;
+    margin: 0 auto;
+    width: 500px;
+    height: 800px;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+#logout-button{
+    background-color: whitesmoke;
+    color: coral;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#registerForm{
+    width: 400px;
+    height: 550px;
+     border: 3px solid white;
+     border-radius: 25px;
+     background-color: white;
+     margin: auto;
+     color:coral;
+     margin-top: 60px;
+     font-size: 25px;
+}
+
+#loginForm > div,#registerForm > div{
+    margin: 15px;
+    font-size: 30px;
+}
+
+#login-title,#register-title{
+    font-size: 45px;
+}
+
+#loginForm > button,#registerForm > button{
+    margin: 15px;
+    font-size: 25px;
+    padding: 5px;
+}
+
+#account-errors,#register-errors{
+    list-style-type: none;
+    margin-right: 40px;
+}
+
+#create-errors{
+    list-style-type: none;
+    font-size: 20px;
+    margin-top: 15px;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.error{
+    margin: auto;
+    background-color: coral;
+    width: 300px;
+    margin-top: 15px;
+    font-size: 20px;
 }

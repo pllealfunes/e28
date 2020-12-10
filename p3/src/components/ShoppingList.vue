@@ -7,9 +7,9 @@
     <div id="empty-cart" v-if="items.length == 0">Nothing To Buy Here</div>
     <div>
       <ul id="recipe-list" v-if="buyItems">
-        <li v-for="item in items" :key="item.id">
+        <li data-test="list-contents" v-for="item in items" :key="item.id">
           {{ item.quantity }} x {{ item.ingrediant }}
-          <button @click="deleteItem(item.ingrediant)">Delete</button>
+          <button data-test="delete-item" @click="deleteItem(item.ingrediant)">Delete</button>
         </li>
       </ul>
     </div>
