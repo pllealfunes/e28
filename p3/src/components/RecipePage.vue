@@ -132,18 +132,19 @@ export default {
       return this.recipe.instructions.split(",");
     },
   },
-  mounted() {
-    axios
-      .get("/favorite/query?recipe_id=" + this.recipe.id)
-      .then((response) => {
-        if (response.data.results.length > 0) {
-          // There should only ever be one unique match between a given user id and a given product id
-          // so we narrow the results down to [0]
-          this.favoriteId = response.data.results[0].id;
-          this.isFavorite = true;
-        }
-        console.log(response);
-      });
+  watch: {
+    user(userValue) {
+      if (userValue) {
+        axios.get("/favorite/query?recipe_id=" + this.id).then((response) => {
+          if (response.data.results.length > 0) {
+            // There should only ever be one unique match between a given user id and a given product id
+            // so we narrow the results down to [0]
+            this.favoriteId = response.data.results[0].id;
+            this.isFavorite = true;
+          }
+        });
+      }
+    },
   },
 };
 </script>
