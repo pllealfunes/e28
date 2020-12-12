@@ -29,11 +29,6 @@ const routes = [
         component: () => import('@/components/ShoppingList.vue'),
     },
     {
-        // This is a route we can direct the user to if they try to access a part of the site they don't have privileges for
-        path: '/favorite',
-        component: () => import('@/components/FavoritesPage.vue'),
-    },
-    {
         path: '/edit/:id',
         component: () => import('@/components/EditPage.vue'),
         // Note the addition of this meta attribute:

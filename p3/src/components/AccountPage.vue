@@ -1,9 +1,15 @@
 <template>
   <div id="account-page">
-    <router-link id="home" :to="'/'">Home Page</router-link>
-    <router-link id="add" :to="'/add'">Add Recipe</router-link>
+    <router-link data-test="test-home-link" id="home" :to="'/'"
+      >Home Page</router-link
+    >
+    <router-link data-test="test-add-recipe-link" id="add" :to="'/add'"
+      >Add Recipe</router-link
+    >
     <div id="user-account" v-if="user">
-      <h2 id="account-name">Hi, {{ user.name }}!</h2>
+      <h2 data-test="test-welcome-message" id="account-name">
+        Hi, {{ user.name }}!
+      </h2>
       <div id="favorites">
         <strong id="your-favorites">Your Favorites</strong>
         <p id="no-favorites" v-if="favorites && favorites.length == 0">
@@ -18,7 +24,9 @@
         </li>
       </div>
 
-      <button id="logout-button" @click="logout">Logout</button>
+      <button id="logout-button" data-test="test-logout-button" @click="logout">
+        Logout
+      </button>
     </div>
 
     <div v-else id="loginForm">
@@ -26,17 +34,25 @@
       <div>
         <label
           >Email:
-          <input type="text" v-model="data.email" v-on:blur="validate()"
+          <input
+            type="text"
+            data-test="test-email-input"
+            v-model="data.email"
+            v-on:blur="validate()"
         /></label>
       </div>
       <div>
         <label
           >Password:
-          <input type="password" v-model="data.password" v-on:blur="validate()"
+          <input
+            type="password"
+            data-test="test-password-input"
+            v-model="data.password"
+            v-on:blur="validate()"
         /></label>
       </div>
 
-      <button @click="login">Login</button>
+      <button @click="login" data-test="test-login-button">Login</button>
       <br />
       <ul id="account-errors" v-if="errors">
         <li class="error" v-for="(error, index) in errors" :key="index">

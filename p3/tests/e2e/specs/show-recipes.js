@@ -8,20 +8,21 @@ describe('Show Recipes', () => {
 
     it('shows all the recipes', () => {
 
+        //Go to homepage and confirm the title exists
         cy.visit('/')
         cy.contains('h1', 'Rezept')
 
-        // Confirm we see at least 3 recipes (that's how many recipe seeds we have)
-        cy.get('[data-test="recipe-link"]').its('length').should('be.gte', 3)
+        // Confirm there are at least 3 recipes (that's how many recipe seeds exist)
+        cy.get('[data-test="test-recipe-link"]').its('length').should('be.gte', 3)
 
         // Confirm we see a test product
-        cy.contains('[data-test="recipe-link"]', recipe.name)
+        cy.contains('[data-test="test-recipe-link"]', recipe.name)
 
         // Confirm we can click on a recipe and go to its individual page
-        cy.get('[data-test="recipe-link"]').contains(recipe.name).click();
+        cy.get('[data-test="test-recipe-link"]').contains(recipe.name).click();
 
         // Confirm the test recipe page loads
-        cy.contains('[data-test="recipe-name"]', recipe.name)
+        cy.contains('[data-test="test-recipe-name"]', recipe.name)
         cy.url().should('include', recipe.id)
 
     })

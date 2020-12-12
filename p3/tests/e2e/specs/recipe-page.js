@@ -9,7 +9,7 @@ describe('Recipe Page', () => {
     // Go to individual recipe page and see if it contains test recipe name
     it('shows a recipe', () => {
         cy.visit('/recipe/' + recipe.id);
-        cy.contains('[data-test="recipe-name"]', recipe.name);
+        cy.contains('[data-test="test-recipe-name"]', recipe.name);
     })
 
     // Go to individual test recipe page and click on ingrediant to add to shopping list
@@ -17,9 +17,9 @@ describe('Recipe Page', () => {
     it('adds to shopping list', () => {
         cy.visit('/recipe/' + recipe.id);
 
-        cy.get('[data-test="add-list"]').click({ multiple: true });
+        cy.get('[data-test="test-add-list"]').click({ multiple: true });
 
-        cy.get('[data-test="add-confirmation"]').should('exist');
-        //cy.contains('[data-test="cart-count"]', 1);
+        cy.get('[data-test="test-add-confirmation"]').should('exist');
+        //cy.contains('[data-test="test-cart-count"]', 1);
     })
 })

@@ -1,12 +1,22 @@
 <template>
   <div id="create-page">
     <h1>Edit Recipe</h1>
-    <router-link id="home" :to="'/'">Home Page</router-link>
-    <router-link id="account-link" :to="'/account'">Sign In</router-link>
-    <router-link id="previous" v-if="recipe" :to="'/recipe/' + recipe.id"
+    <router-link data-test="test-home-link" id="home" :to="'/'"
+      >Home Page</router-link
+    >
+    <router-link id="account-link" :to="'/account'">Account</router-link>
+    <router-link
+      data-test="test-previous-link"
+      id="previous"
+      v-if="recipe"
+      :to="'/recipe/' + recipe.id"
       >Back to Recipe</router-link
     >
-    <div id="confirmation-message" v-if="showConfirmationMessage">
+    <div
+      data-test="test-recipe-edited-confirmation"
+      id="confirmation-message"
+      v-if="showConfirmationMessage"
+    >
       Successfully Edited Recipe
     </div>
     <div v-if="recipe" id="addRecipe">
@@ -17,21 +27,42 @@
       </ul>
 
       <label for="name"></label>
-      <input id="name" type="text" v-model="recipe.name" />
+      <input
+        id="name"
+        data-test="test-edit-name-input"
+        type="text"
+        placeholder="New Recipe"
+        v-model="recipe.name"
+        v-on:blur="validate()"
+      />
 
       <label for="ingrediants"></label>
-      <textarea id="ingrediants" v-model="recipe.ingrediants" />
+      <textarea
+        id="ingrediants"
+        data-test="test-edit-ingrediants-input"
+        placeholder="ex: Ingrediant, Ingrediant"
+        v-model="recipe.ingrediants"
+        v-on:blur="validate()"
+      />
 
       <label for="instructions"></label>
-      <textarea id="instructions" v-model="recipe.instructions" />
-      <button id="edit-recipe" @click="editRecipe">Edit Recipe</button>
+      <textarea
+        id="instructions"
+        data-test="test-edit-instructions-input"
+        placeholder="ex: 1. Instrcution, 2. Instruction"
+        v-model="recipe.instructions"
+        v-on:blur="validate()"
+      />
+      <button data-test="test-edit-button" id="edit-recipe" @click="editRecipe">
+        Edit Recipe
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import { axios } from "@/app.js";
-//import Validator from "validatorjs";
+import Validator from "validatorjs";
 
 export default {
   props: ["id"],
@@ -46,7 +77,7 @@ export default {
     };
   },
   methods: {
-    /*validate() {
+    validate() {
       let validator = new Validator(this.recipe, {
         name: "required",
         ingrediants: "required",
@@ -56,7 +87,7 @@ export default {
       this.errors = validator.errors.all();
 
       return validator.passes();
-    },*/
+    },
     editRecipe() {
       axios.put("/recipe/" + this.recipe.id, this.recipe).then((response) => {
         if (response.data.errors) {
@@ -64,6 +95,7 @@ export default {
           //this.ingrediants = response.data.errors.ingrediants;
           //this.instructions = response.data.errors.instructions;
           this.errors = response.data.errors;
+          this.$store.dispatch("fetchRecipes");
         } else {
           this.$store.dispatch("fetchRecipes");
           //this.name = null;

@@ -1,34 +1,49 @@
 <template>
   <div>
     <div v-if="recipe">
-      <h1 data-test="recipe-name">{{ recipe.name }}</h1>
+      <h1 data-test="test-recipe-name">{{ recipe.name }}</h1>
       <router-link id="home" :to="'/'">Home Page</router-link>
-      <router-link id="account-link" :to="'/account'">Sign In</router-link>
+      <router-link id="account-link" :to="'/account'">Account</router-link>
       <router-link id="add" :to="'/add'">Add Recipe</router-link>
-      <router-link id="edit" :to="'/edit/' + recipe.id"
+      <router-link
+        data-test="test-edit-link"
+        id="edit"
+        :to="'/edit/' + recipe.id"
         >Edit Recipe</router-link
       >
       <div
         id="confirmation-message"
-        data-test="add-confirmation"
+        data-test="test-add-confirmation"
         v-if="showConfirmationMessage"
       >
         Added Ingrediant to Shopping List
       </div>
       <div class="recipe">
         <div v-if="user">
-          <button v-if="isFavorite" @click="deleteFavorite()">
+          <button
+            data-test="test-add-favorite"
+            id="add-favorite"
+            v-if="isFavorite"
+            @click="deleteFavorite()"
+          >
             Remove from Favorites
           </button>
-          <button v-else @click="addFavorite()">Add to Favorites</button>
+          <button
+            data-test="test-remove-favorite"
+            id="remove-favorite"
+            v-else
+            @click="addFavorite()"
+          >
+            Add to Favorites
+          </button>
         </div>
         <h2 id="ingrediants-title">Ingrediants</h2>
         <ul id="ingrediant-list">
           <li v-for="ingrediant in splitItem" :key="ingrediant">
             {{ ingrediant }}
             <button
+              data-test="test-add-list"
               id="add-shoppinglist"
-              data-test="add-list"
               @click="addShoppingList(ingrediant)"
             >
               Buy
@@ -41,7 +56,14 @@
             {{ instruction }}
           </li>
         </ul>
-        <button id="delete-recipe" @click="deleteRecipe">Delete Recipe</button>
+        <button
+          v-if="user"
+          data-test="test-delete-button"
+          id="delete-recipe"
+          @click="deleteRecipe"
+        >
+          Delete Recipe
+        </button>
       </div>
     </div>
     <div v-if="recipeNotFound">
@@ -84,6 +106,16 @@ export default {
       this.$store.commit("setCartCount", cart.count());
       this.showConfirmationMessage = true;
       setTimeout(() => (this.showConfirmationMessage = false), 2000);
+    },
+    getFavoriteDetails() {
+      axios.get("/favorite/query?recipe_id=" + this.id).then((response) => {
+        if (response.data.results.length > 0) {
+          // There should only ever be one unique match between a given user id and a given product id
+          // so we narrow the results down to [0]
+          this.favoriteId = response.data.results[0].id;
+          this.isFavorite = true;
+        }
+      });
     },
     addFavorite() {
       //update the shopping list with the new item to buy
@@ -135,16 +167,16 @@ export default {
   watch: {
     user(userValue) {
       if (userValue) {
-        axios.get("/favorite/query?recipe_id=" + this.id).then((response) => {
-          if (response.data.results.length > 0) {
-            // There should only ever be one unique match between a given user id and a given product id
-            // so we narrow the results down to [0]
-            this.favoriteId = response.data.results[0].id;
-            this.isFavorite = true;
-          }
-        });
+        this.getFavoriteDetails();
       }
     },
+  },
+  mounted() {
+    // If we navigate to this route from another route, the user info will already be available
+    // so we can go ahead and load favorites
+    if (this.user) {
+      this.getFavoriteDetails();
+    }
   },
 };
 </script>

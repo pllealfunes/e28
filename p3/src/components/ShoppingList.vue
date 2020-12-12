@@ -2,14 +2,22 @@
   <div>
     <h1>Shopping List</h1>
     <router-link id="home" :to="'/'">Home Page</router-link>
-    <router-link id="account-link" :to="'/account'">Sign In</router-link>
+    <router-link id="account-link" :to="'/account'">Account</router-link>
     <router-link id="add" :to="'/add'">Add Recipe</router-link>
-    <div id="empty-cart" v-if="items.length == 0">Nothing To Buy Here</div>
+    <div data-test="test-list-count" id="empty-cart" v-if="items.length == 0">
+      Nothing To Buy Here
+    </div>
     <div>
-      <ul id="recipe-list" v-if="buyItems">
-        <li data-test="list-contents" v-for="item in items" :key="item.id">
+      <ul data-test="test-list-contents" id="recipe-list" v-if="buyItems">
+        <li v-for="item in items" :key="item.id">
           {{ item.quantity }} x {{ item.ingrediant }}
-          <button data-test="delete-item" @click="deleteItem(item.ingrediant)">Delete</button>
+          <button
+            data-test="test-delete-item"
+            id="delete-item"
+            @click="deleteItem(item.ingrediant)"
+          >
+            Delete
+          </button>
         </li>
       </ul>
     </div>

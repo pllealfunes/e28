@@ -7,7 +7,7 @@
 
 <script>
 import ListCount from "@/components/ListCount.vue";
-//import { cart } from "@/app.js";
+
 export default {
   name: "App",
   components: {

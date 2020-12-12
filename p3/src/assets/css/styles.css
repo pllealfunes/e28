@@ -42,6 +42,12 @@ button{
     color: coral;
 }
 
+#add-favorite,#remove-favorite{
+    background-color: whitesmoke;
+    color: coral;
+    margin-top: 15px;
+}
+
 #add-shoppinglist
 {
     background-color: whitesmoke;

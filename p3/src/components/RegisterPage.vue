@@ -1,28 +1,45 @@
 <template>
   <div id="register-page">
     <router-link id="home" :to="'/'">Home Page</router-link>
-    <router-link id="add" :to="'/add'">Add Recipe</router-link>
     <div id="registerForm">
       <h2 id="register-title">Register</h2>
       <div>
         <label
-          >Name: <input type="text" v-model="data.name" v-on:blur="validate()"
+          >Name:
+          <input
+            data-test="test-register-name"
+            type="text"
+            placeholder="Tina Belcher"
+            v-model="data.name"
+            v-on:blur="validate()"
         /></label>
       </div>
       <div>
         <label
           >Email:
-          <input type="text" v-model="data.email" v-on:blur="validate()"
+          <input
+            data-test="test-register-email"
+            type="text"
+            placeholder="tinabelcher@email.com"
+            v-model="data.email"
+            v-on:blur="validate()"
         /></label>
       </div>
       <div>
         <label
           >Password:
-          <input type="password" v-model="data.password" v-on:blur="validate()"
+          <input
+            data-test="test-register-password"
+            type="password"
+            placeholder="Must be 8 characters"
+            v-model="data.password"
+            v-on:blur="validate()"
         /></label>
       </div>
 
-      <button @click="registerUser">Register</button>
+      <button data-test="test-register-button" @click="registerUser">
+        Register
+      </button>
       <br />
       <ul v-if="errors">
         <li id="register-errors" v-for="(error, index) in errors" :key="index">

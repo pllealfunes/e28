@@ -1,15 +1,20 @@
 <template>
   <div>
     <h1>Rezept</h1>
-    <router-link id="account-link" :to="'/account'">Sign In</router-link>
+    <router-link
+      data-test="test-account-link"
+      id="account-link"
+      :to="'/account'"
+      >Sign In</router-link
+    >
 
-    <router-link id="add" :to="'/add'">Add Recipe</router-link>
-
-    <router-link id="favorites-list" :to="'/favorites'">favorites</router-link>
+    <router-link data-test="test-add-link" id="add" :to="'/add'"
+      >Add Recipe</router-link
+    >
 
     <div id="recipes">
       <router-link
-      data-test="recipe-link"
+        data-test="test-recipe-link"
         id="recipe-link"
         v-for="recipe in recipes"
         :key="recipe.id"

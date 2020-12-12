@@ -1,6 +1,6 @@
 <template>
   <div id="list-container">
-    <router-link id="list-count" :to="'/shoppingList'"
+    <router-link id="list-count" :to="'/shoppingList'" data-test="cart-count"
       >Shop {{ cartCount }} Items</router-link
     >
   </div>
