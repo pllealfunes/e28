@@ -17,6 +17,7 @@
         </p>
         <li
           id="favorites"
+          data-test="test-favorites"
           v-for="(favorite, key) in favorites"
           v-bind:key="key"
         >

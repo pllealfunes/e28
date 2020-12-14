@@ -5,7 +5,7 @@
       data-test="test-account-link"
       id="account-link"
       :to="'/account'"
-      >Sign In</router-link
+      >Account</router-link
     >
 
     <router-link data-test="test-add-link" id="add" :to="'/add'"
