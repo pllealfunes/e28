@@ -1,6 +1,6 @@
 import Cart from '@/common/Cart.js';
 export const axios = require('axios').create({
-    baseURL: process.env.VUE_APP_API_URL ?? 'https://e28-api.lefthandedcat.loc',
+    baseURL: process.env.VUE_APP_API_URL ?? 'https://e28-api.lefthandedcat.me',
     responseType: 'json',
     withCredentials: true
 })
