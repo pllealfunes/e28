@@ -1,28 +1,30 @@
-# Project 2
+# Project 3
 + By: Paula Leal Funes
-+ Production URL: http://e28p2.lefthandedcat.me
++ Production URL: http://e28p3.lefthandedcat.me
 
 ## Pages summary
 * ShowRecipes - Show all recipes/the home page
-* RecipePage - Show a single recipe
-* ShoppingList Page - shows shopping list (click shopping list circle on left corner)
-* FavoritesPage - Shows list of favorite recipes
-* CreatePage - Create a new recipe
-* EditRecipe - Edit a recipe
+* RecipePage - Show a single recipe (only authenticated users can delete a recipe) to delete a recipe
+* ShoppingList Page - Shows list of items to buy (click shopping list circle on left corner to view)
+* CreatePage - Create a new recipe (only accessible to authenticated users)
+* EditRecipe - Edit a recipe (only accessible to authenticated users)
+* Account - Where a user can login. Also has to link to registration page if user would like to create an account
 
 ## SFC summary
-ListCount.vue is the only SFC
+ListCount.vue is the only SFC - it shows the amount of items in the user's shopping list (accessible with or without authentication)
   
 ## Server interaction
 All four CRUD operations are used in the application.
-* Create - CreatePage
-* Read - ShowRecipes, Recipe page, and Shopping List
-* Update - Edit Page
-* Delete - Recipe Page
+* Create - CreatePage to create a recipe
+* Read - ShowRecipes to see all recipes and Recipe page to see a single recipe
+* Update - Edit Page to edit a recipe
+* Delete - Recipe Page to delete a recipe
 
-## Outside resources
-* Used this information to add an Ingrediant to the Shopping List: https://stackoverflow.com/questions/49530453/vue-js-javascript-create-new-object-onclick-with-one-value-being-the-value-of-t
-* Used this information to help format my error messages on my Create Page: https://stackoverflow.com/questions/46970642/how-to-display-error-message-in-front-end-using-vue-js
+## Reuirements
+* State management w/Vuex - recipes
+* Authentication - Ability to register and login. The EditeRecipe, CreateRecipe, and the ability to Delete on the Recipe page are restricted.
+* Form Validation -AccountPage, RegisterPage, CreateRecipe, and EditRecipe.
+* Passing E2E Tests
 
-## Notes for instructor
-Error messages will not display on the Edit Page if a field is left blank but will still update the recipe even with a blank space. There isn't a way to delete an item from the shopping list.
+## Other 
+Local storage is used to add and delete items from the Shopping List.

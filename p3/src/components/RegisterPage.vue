@@ -60,7 +60,6 @@ import Validator from "validatorjs";
 export default {
   data() {
     return {
-      // Form is prefilled for demonstration purposes; remove in final application
       data: {
         name: null,
         email: null,

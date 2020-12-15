@@ -90,15 +90,9 @@ export default {
     addRecipe() {
       axios.post("/recipe", this.recipe).then((response) => {
         if (response.data.errors) {
-          //this.name = response.data.errors.name;
-          //this.ingrediants = response.data.errors.ingrediants;
-          //this.instructions = response.data.errors.instructions;
           this.errors = response.data.errors;
         } else {
           this.$store.dispatch("fetchRecipes");
-          //this.name = null;
-          //this.ingrediants = null;
-          //this.instructions = null;
           this.showConfirmationMessage = true;
           this.recipe = "";
           setTimeout(() => (this.showConfirmationMessage = false), 2000);

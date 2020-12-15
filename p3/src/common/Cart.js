@@ -19,7 +19,7 @@ export default class Cart {
     }
 
     /**
-     * Returns how many total items are in the cart
+     * Returns how many total ingrediants are in the cart
      */
     count() {
         let sum = 0;
@@ -37,19 +37,19 @@ export default class Cart {
     }
 
     /**
-     * Add a new item of the given id
+     * Add a new ingreidant of the given id
      */
     add(ingrediant, quantity = 1) {
 
-        // First see if product is already present
+        // First see if ingrediant is already present
         let item = this.getItem(ingrediant)
 
         if (item) {
-            // Product is in cart already; increment quantity by 1
+            // Ingrediant is in cart already; increment quantity by 1
             item.quantity += quantity;
 
         } else {
-            // Product not in cart, add as new item
+            // Ingrediant not in cart, add as new iingrediant
             this.items.push({
                 ingrediant: ingrediant,
                 quantity: quantity
@@ -74,8 +74,8 @@ export default class Cart {
     }
 
     /**
-     * Get an item from items via id
-     * Returns null if product does not exist in items
+     * Get an iingrediant from items via id
+     * Returns null if item does not exist in items
      */
     getItem(recipeId) {
         return this.items.find(({ ingrediant }) => ingrediant === recipeId) || null;

@@ -74,10 +74,9 @@ import Validator from "validatorjs";
 export default {
   data() {
     return {
-      // Form is prefilled for demonstration purposes; remove in final application
       data: {
-        email: "jill@harvard.edu",
-        password: "asdfasdf",
+        email: null,
+        password: null,
       },
       errors: null,
       favorites: [],

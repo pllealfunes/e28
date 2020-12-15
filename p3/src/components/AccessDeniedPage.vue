@@ -20,10 +20,6 @@ export default {
     recipes() {
       return this.$store.state.recipes;
     },
-    lastItem: function () {
-      //filter throught the recipes to see which recipes have items to buy and find the length of the array
-      return this.recipes.filter((recipe) => recipe.buy);
-    },
   },
 };
 </script>

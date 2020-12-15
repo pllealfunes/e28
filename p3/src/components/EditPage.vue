@@ -91,17 +91,10 @@ export default {
     editRecipe() {
       axios.put("/recipe/" + this.recipe.id, this.recipe).then((response) => {
         if (response.data.errors) {
-          //this.name = response.data.errors.name;
-          //this.ingrediants = response.data.errors.ingrediants;
-          //this.instructions = response.data.errors.instructions;
           this.errors = response.data.errors;
           this.$store.dispatch("fetchRecipes");
         } else {
           this.$store.dispatch("fetchRecipes");
-          //this.name = null;
-          //this.ingrediants = null;
-          //this.instructions = null;
-          //this.errors = response.data.errors;
           this.showConfirmationMessage = true;
           setTimeout(() => (this.showConfirmationMessage = false), 2000);
         }
