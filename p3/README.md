@@ -1,6 +1,7 @@
 # Project 3
 + By: Paula Leal Funes
 + Production URL: http://e28p3.lefthandedcat.me
++ API: https://e28-api.lefthandedcat.me
 
 ## Pages summary
 * ShowRecipes - Show all recipes/the home page
