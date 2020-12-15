@@ -56,7 +56,7 @@
       <button @click="login" data-test="test-login-button">Login</button>
       <br />
       <ul id="account-errors" v-if="errors">
-        <li class="error" v-for="(error, index) in errors" :key="index">
+        <li v-for="(error, index) in errors" :key="index">
           {{ error.toString() }}
         </li>
       </ul>
