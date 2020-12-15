@@ -14,7 +14,7 @@
 ListCount.vue is the only SFC - it shows the amount of items in the user's shopping list (accessible with or without authentication)
   
 ## Server interaction
-All four CRUD operations are used in the application.
+All four CRUD operations are used in the application
 * Create - CreatePage to create a recipe
 * Read - ShowRecipes to see all recipes and Recipe page to see a single recipe
 * Update - Edit Page to edit a recipe
@@ -23,7 +23,7 @@ All four CRUD operations are used in the application.
 ## Reuirements
 * State management w/Vuex - recipes
 * Authentication - Ability to register and login. The EditeRecipe, CreateRecipe, and the ability to Delete on the Recipe page are restricted.
-* Form Validation -AccountPage, RegisterPage, CreateRecipe, and EditRecipe.
+* Form Validation - AccountPage, RegisterPage, CreateRecipe, and EditRecipe.
 * Passing E2E Tests
 
 ## Other 
