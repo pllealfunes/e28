@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Word Scramble</title>
+    <style>
+        [v-cloak] {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Word Scramble</h1>
+    <div id='app'>
+        <label>Enter your player name: <input type='text' v-model='playerName'></label>
+        <button v-on:click='submitName'>Let's play!</button>
+        <div v-if='startGame'>
+            <p>Game on, {{ playerName }}!</p>
+            <p>Your mystery word: {{ displayMysteryWord }}</p>
+            <p>Hint: {{ hint }}</p>
+            <label>Your guess: <input type='text' v-model='guess'></label>
+            <button v-on:click='submitGuess'>Submit guess</button>
+            <div v-if='result'>
+                <p v-if='message == true' v-bind:class='{win}'>You got it! Nice work. <button
+                        v-on:click='resetGame'>Play again</button></p>
+                <p v-else v-bind:class='{lose}'>Sorry, that's not correct. Please try again.</p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
