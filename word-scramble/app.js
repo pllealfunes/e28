@@ -39,16 +39,14 @@ let app = new Vue({
             }
         },
         resetGame() {
-            this.mysteryWord = '';
-            this.hint = '';
-            this.guess = '';
-            this.result = false;
             this.num = this.words[Math.floor((Math.random() * this.words.length))];
             if (this.num[0] == this.mysteryWord) {
                 this.num = this.words[Math.floor((Math.random() * this.words.length))];
             } else {
                 this.mysteryWord = this.num[0];
                 this.hint = this.num[1];
+                this.guess = '';
+                this.result = false;
             }
         }
     },
