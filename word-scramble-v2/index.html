@@ -19,7 +19,7 @@
     <script type='text/x-template' id='round-detail'>
         <div v-if='result'>
             <p v-if='correct == true' v-bind:class='resultClass'>You got it! Nice work. <button
-                    v-on:click='resetGame = !resetGame'>Play again</button></p>
+                @click="resetGame" >Play again</button></p>
             <p v-else v-bind:class='resultClass'>Sorry, that's not correct. Please try again.</p>
         </div>
     </script>
@@ -33,7 +33,7 @@
             <p>Hint: {{ hint }}</p>
             <label>Your guess: <input type='text' v-model='guess'></label>
             <button v-on:click='submitGuess'>Submit guess</button>
-            <round-detail :correct='correct' :result-class='resultClass' :result='result' :reset-game='resetGame'>
+            <round-detail :reset-game='resetGame' :correct='correct' :result-class='resultClass' :result='result'>
             </round-detail>
         </div>
     </div>

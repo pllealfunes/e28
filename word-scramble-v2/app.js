@@ -1,7 +1,6 @@
 Vue.component('round-detail', {
     data() {
         return {
-            resetGame: true,
         }
     },
     props: {
@@ -17,8 +16,12 @@ Vue.component('round-detail', {
             type: String,
             default: '',
         },
+        resetGame: {
+            type: Function
+        }
     },
     template: '#round-detail',
+
 });
 
 
@@ -41,7 +44,7 @@ let app = new Vue({
         num: null,
         scrambledWord: '',
         correct: null,
-        resultClass: ''
+        resultClass: '',
     },
     methods: {
         submitName() {
