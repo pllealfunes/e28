@@ -67,7 +67,7 @@ let app = new Vue({
         },
         resetGame() {
             this.num = this.words[Math.floor((Math.random() * this.words.length))];
-            if (this.num[0] == this.mysteryWord) {
+            if (this.num[0] === this.mysteryWord) {
                 this.num = this.words[Math.floor((Math.random() * this.words.length))];
             } else {
                 this.mysteryWord = this.num[0];
