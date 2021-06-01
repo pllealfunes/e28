@@ -1,6 +1,7 @@
 Vue.component('round-detail', {
     data() {
         return {
+            resetGame: true,
         }
     },
     props: {
@@ -15,22 +16,9 @@ Vue.component('round-detail', {
         resultClass: {
             type: String,
             default: '',
-        }
+        },
     },
     template: '#round-detail',
-    methods: {
-        resetGame() {
-            this.num = this.words[Math.floor((Math.random() * this.words.length))];
-            if (this.num[0] == this.mysteryWord) {
-                this.num = this.words[Math.floor((Math.random() * this.words.length))];
-            } else {
-                this.mysteryWord = this.num[0];
-                this.hint = this.num[1];
-                this.guess = '';
-                this.result = false;
-            }
-        }
-    }
 });
 
 
@@ -43,7 +31,7 @@ let app = new Vue({
         mysteryWord: '',
         hint: '',
         guess: '',
-        //result: false,
+        result: false,
         words: [
             ['apple', 'Sometimes red, sometimes delicious'],
             ['washington', 'Rushmore’s left edge'],
@@ -51,12 +39,9 @@ let app = new Vue({
             ['football', 'Play with your hands or feet, depending on your location']
         ],
         num: null,
-        //message: null,
         scrambledWord: '',
-        //win: false,
-        //correct: null,
-        //resultClass: ''
-        details: []
+        correct: null,
+        resultClass: ''
     },
     methods: {
         submitName() {
@@ -66,23 +51,16 @@ let app = new Vue({
             this.hint = this.num[1];
         },
         submitGuess() {
-            let result = true;
-            let correct = false;
-            let resultClass = '';
+            this.result = true;
             if (this.guess === this.mysteryWord) {
-                correct = true;
-                resultClass = 'win';
+                this.correct = true;
+                this.resultClass = 'win';
             } else if (this.guess != this.mysteryWord) {
-                correct = false;
-                resultClass = 'lose';
+                this.correct = false;
+                this.resultClass = 'lose';
             } else {
-                correct = null;
+                this.correct = null;
             }
-            this.details.push({
-                correct: correct,
-                resultClass: resultClass,
-                result: result
-            })
         },
         resetGame() {
             this.num = this.words[Math.floor((Math.random() * this.words.length))];
@@ -92,7 +70,7 @@ let app = new Vue({
                 this.mysteryWord = this.num[0];
                 this.hint = this.num[1];
                 this.guess = '';
-                let result = false;
+                this.result = false;
             }
         }
     },

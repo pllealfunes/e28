@@ -19,12 +19,12 @@
     <script type='text/x-template' id='round-detail'>
         <div v-if='result'>
             <p v-if='correct == true' v-bind:class='resultClass'>You got it! Nice work. <button
-                    v-on:click='resetGame'>Play again</button></p>
+                    v-on:click='resetGame = !resetGame'>Play again</button></p>
             <p v-else v-bind:class='resultClass'>Sorry, that's not correct. Please try again.</p>
         </div>
     </script>
     <h1>Word Scramble</h1>
-    <div id='app'>
+    <div id='app' v-cloak>
         <label>Enter your player name: <input type='text' v-model='playerName'></label>
         <button v-on:click='submitName'>Let's play!</button>
         <div v-if='startGame'>
@@ -33,8 +33,7 @@
             <p>Hint: {{ hint }}</p>
             <label>Your guess: <input type='text' v-model='guess'></label>
             <button v-on:click='submitGuess'>Submit guess</button>
-            <round-detail v-for='detail in details' :correct='detail.correct' :result-class='detail.resultClass'
-                :result='detail.result' :key='detail.correct' @reset-game='resetGame'>
+            <round-detail :correct='correct' :result-class='resultClass' :result='result' :reset-game='resetGame'>
             </round-detail>
         </div>
     </div>
