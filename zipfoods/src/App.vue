@@ -2,35 +2,31 @@
   <div id="app">
     <nav>
       <ul>
-        <li v-for="link in links" :key="link">
-          <a href="#" @click="page = link">{{ link }}</a>
+        <li>
+          <router-link
+            v-for="link in links"
+            v-bind:key="link"
+            v-bind:to="paths[link]"
+            exact
+            >{{ link }}</router-link
+          >
         </li>
       </ul>
     </nav>
-
-    <component v-bind:is="linkComponents[page]"></component>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import CategoriesPage from "./components/pages/CategoriesPage.vue";
-import HomePage from "./components/pages/HomePage.vue";
-import ProductsPage from "./components/pages/Products.vue";
 export default {
   name: "App",
-  components: {
-    "home-page": HomePage,
-    "categories-page": CategoriesPage,
-    "products-page": ProductsPage,
-  },
   data: function () {
     return {
-      page: "home",
       links: ["home", "products", "categories"],
-      linkComponents: {
-        home: "home-page",
-        products: "products-page",
-        categories: "categories-page",
+      paths: {
+        home: "/",
+        products: "/products",
+        categories: "/categories",
       },
     };
   },
