@@ -1,27 +1,38 @@
 <template>
   <div id="app">
-    <img
-      alt="ZipFoods logo"
-      id="logo"
-      src="@/assets/images/zipfoods-logo.png"
-    />
-    <p>
-      ZipFoods is your one-stop-shop for convenient online grocery shopping in
-      the greater Boston area.
-    </p>
-    <show-featured :category="'snacks'"> </show-featured>
-    <show-products></show-products>
+    <nav>
+      <ul>
+        <li v-for="link in links" :key="link">
+          <a href="#" @click="page = link">{{ link }}</a>
+        </li>
+      </ul>
+    </nav>
+
+    <component v-bind:is="linkComponents[page]"></component>
   </div>
 </template>
 
 <script>
-import ShowProducts from "@/components/ShowProducts.vue";
-import ShowFeatured from "@/components/ShowFeatured.vue";
+import CategoriesPage from "./components/pages/CategoriesPage.vue";
+import HomePage from "./components/pages/HomePage.vue";
+import ProductsPage from "./components/pages/Products.vue";
 export default {
   name: "App",
   components: {
-    "show-products": ShowProducts,
-    "show-featured": ShowFeatured,
+    "home-page": HomePage,
+    "categories-page": CategoriesPage,
+    "products-page": ProductsPage,
+  },
+  data: function () {
+    return {
+      page: "home",
+      links: ["home", "products", "categories"],
+      linkComponents: {
+        home: "home-page",
+        products: "products-page",
+        categories: "categories-page",
+      },
+    };
   },
 };
 </script>

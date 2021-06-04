@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "show-product",
+  name: "products-page",
   props: ["product"],
   data: function () {
     return {};
